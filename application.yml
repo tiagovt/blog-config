@@ -9,4 +9,4 @@ eureka:
   client:
     registryFetchIntervalSeconds: 5
 user:
-	name : Tiago    
+  name : Tiago    
