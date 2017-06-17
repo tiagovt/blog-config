@@ -10,3 +10,5 @@ eureka:
     registryFetchIntervalSeconds: 5
 user:
   name : Tiago    
+usuario:
+  nome : Tiago Augusto Afonso Vaz Teixeira  
