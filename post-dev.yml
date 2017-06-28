@@ -13,3 +13,8 @@ user:
 usuario:
   nome : Tiago Augusto Afonso Vaz Teixeira
 teste : Tiago Augusto Afonso Vaz Teixeira    
+
+spring:
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:9999/uaa/user
