@@ -1,0 +1,37 @@
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/auth
+    username: root
+    password: root123
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  boot:
+    admin:
+      url: http://localhost:7070
+      #username: admin
+      #password: admin123
+management:
+  security:
+    enabled: false            
+      
+server:
+  port: 9999
+  context-path: /uaa
+
+security:
+  user:
+    password: password        
+  
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+  client:
+    registryFetchIntervalSeconds: 5
+    

@@ -1,15 +1,43 @@
 server:
-  port: 8890
+  port: ${PORT:8081}
+  context-path: /post
 
+logging:
+  levels:
+    org.springframework.boot.env.PropertySourcesLoader: TRACE
+    org.springframework.web: DEBUG
+    
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 10
     metadataMap:
       instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
   client:
-    registryFetchIntervalSeconds: 5
-user:
-  name : Tiago    
-usuario:
-  nome : Tiago Augusto Afonso Vaz Teixeira
-teste : Tiago Augusto Afonso Vaz Teixeira    
+    registryFetchIntervalSeconds: 5    
+    
+endpoints:
+  restart:
+    enabled: true
+    
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:9999/uaa/user
+
+spring:      
+  boot:
+    admin:
+      url: http://localhost:7070
+      #username: admin
+      #password: admin123
+management:
+  security:
+    enabled: false
+    
+                
+#spring:
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
